@@ -1,0 +1,35 @@
+//INSERTION SORT 6:15pm
+#include <stdio.h>
+#include <stdlib.h>
+
+int* insertionsort( int* B, int* s)
+{
+ int hole,i;
+ for (i=1; i<= *s-1;i++)
+ { 
+   int hole=i;
+   int value= B[i];
+   while(hole>=1 && value<B[hole-1])
+   {
+     B[hole] = B[hole -1]; 
+     hole = hole-1;
+   }
+   B[hole]=value;
+ }
+ return B;
+}
+
+int main(void) {
+  printf("Hello World, this is insertion sort\n");
+  int A[7]= {17, 25, 31, 13, 2};
+  int size = sizeof(A)/sizeof(A[0]);
+  printf("size=%d\n",size);
+  printf("Original A=");
+  for (int i=0;i<size; i++)
+  printf(" %d",A[i]);
+  printf("\nSorted  A =");
+  insertionsort(A,&size);
+  for (int i=0;i<size; i++)
+  printf(" %d",A[i]);
+  return 0;
+}
