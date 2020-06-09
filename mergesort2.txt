@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+void merge(int*A, int start, int end, int mid)
+{ int i =start;
+  int k =0;
+  int j=mid+1;
+  int B[end-start+1];
+  while( i<=mid && j<=end )
+  {
+    if (A[i]>A[j])
+    {B[k]= A[j];
+    j++;k++;}
+    else
+    {B[k]=A[i];
+    i++;k++;}
+  }
+  while(j<=end)
+  {B[k]=A[j];
+  k++;j++;}
+  
+  while(i<=mid) 
+  {B[k]=A[i];
+  k++;i++;}
+
+  for(i = start; i <= end; i += 1) {
+		A[i] = B[i - start];
+	}
+}
+
+void mergesort(int* A, int start, int end)
+{
+int mid= (end+start )/2; 
+if(end>start)
+{mergesort(A, start, mid);
+mergesort(A, mid+1 ,end);}
+merge(A, start , end, mid);
+}
+
+int main(void) {
+  printf("Hello World, welcome to merge sort\n");
+  printf("Orginal A: ");
+  int A[]={2, -1, 6,-2, 21,1, 5, 10, 3, 0, 8};
+  int size= sizeof(A)/sizeof(A[0]);
+  for (int i=0; i<size; i++)
+  printf(" %d", A[i]);
+  printf("\nsize = %d\n",size);
+  int start=0;
+  int end= size-1;
+  printf("\nSorted A: ");
+  mergesort(A, start, end);
+  for (int j=0;j<size;j++)
+  printf(" %d",A[j]);
+  return 0;
+}
