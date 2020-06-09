@@ -8,3 +8,5 @@ space complexity is O(n)   //due to depth
 time complexity is O(nlogn)
 
 NO, it's not stable because it involves swapping with pivot without checking the position
+
+We can remove worst(O(n^2)) case if we take any random index as pivot instead of always taking the last one and the swap with A[end] and now proceed as usual
