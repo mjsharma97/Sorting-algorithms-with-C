@@ -7,4 +7,4 @@ right by taking fixed pindex from start, increasing A[i] and compairing A[i] wit
 space complexity is O(n)   //due to depth
 time complexity is O(nlogn)
 
-NO, it's not stable
+NO, it's not stable because it involves swapping with pivot without checking the position
